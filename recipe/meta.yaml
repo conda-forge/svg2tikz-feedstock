@@ -23,8 +23,8 @@ requirements:
     - pip
   run:
     - python >={{ python_min }}
-    - lxml >=4.9.2,<5.0.0
-    - inkex >=1.4.0,<2.0.0
+    - lxml >=5.1.1
+    - inkex 1.4.0
 
 test:
   imports:
