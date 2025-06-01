@@ -1,5 +1,5 @@
 {% set name = "svg2tikz" %}
-{% set version = "3.3.0" %}
+{% set version = "3.3.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/svg2tikz-{{ version }}.tar.gz
-  sha256: 0340369d2ff9e5a137afc4e49a7385eecce2362b7d046dc348fd408dfbbeae2a
+  sha256: 259f0c89e078633e428cbb4ec088137dd2a7b0fdf35b7ce16d6d974271aa8b0e
 
 build:
   entry_points:
@@ -23,8 +23,8 @@ requirements:
     - pip
   run:
     - python >={{ python_min }}
-    - lxml >=4.9.2,<5.0.0
-    - inkex >=1.4.0,<2.0.0
+    - lxml >=5.1.1
+    - inkex 1.4.0
 
 test:
   imports:
