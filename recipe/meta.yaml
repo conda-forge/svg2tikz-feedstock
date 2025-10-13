@@ -1,5 +1,5 @@
 {% set name = "svg2tikz" %}
-{% set version = "3.3.2" %}
+{% set version = "3.3.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/svg2tikz-{{ version }}.tar.gz
-  sha256: 259f0c89e078633e428cbb4ec088137dd2a7b0fdf35b7ce16d6d974271aa8b0e
+  sha256: f430668991faae5c359cc6d2aee2be622e1825b80dcf0eed65dba2bfd6a1395a
 
 build:
   entry_points:
