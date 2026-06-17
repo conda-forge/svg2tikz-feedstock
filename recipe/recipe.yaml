@@ -1,0 +1,57 @@
+schema_version: 1
+
+context:
+  name: svg2tikz
+  version: "3.3.6"
+  python_min: "3.12"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/svg2tikz-${{ version }}.tar.gz
+  sha256: c721a2406c0f41dab8aaa4216fbd5aab6d61f7477a08e4dab6c582f214a9a0ae
+
+build:
+  number: 0
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  python:
+    entry_points:
+      - svg2tikz = svg2tikz.tikz_export:main_cmdline
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - poetry-core
+    - pip
+  run:
+    - python >=${{ python_min }}
+    - lxml >=5.1.1
+    - inkex 1.4.0.*
+    - pygobject <=3.50.0
+
+tests:
+  - python:
+      imports:
+        - svg2tikz
+      pip_check: true
+      python_version: ${{ python_min }}.*
+  - requirements:
+      run:
+        - pip
+    script:
+      - svg2tikz --help
+
+about:
+  summary: Tools for converting SVG graphics to TikZ/PGF code
+  license: GPL-2.0-or-later
+  license_file: LICENSE
+  homepage: https://pypi.org/project/svg2tikz/
+  repository: https://github.com/xyz2tex/svg2tikz
+  documentation: http://xyz2tex.github.io/svg2tikz
+
+extra:
+  recipe-maintainers:
+    - anjos
