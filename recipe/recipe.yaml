@@ -23,7 +23,7 @@ build:
 
 requirements:
   host:
-    - python ${{ python_min }}
+    - python ${{ python_min }}.*
     - poetry-core
     - pip
   run:
@@ -37,10 +37,9 @@ tests:
       imports:
         - svg2tikz
       pip_check: true
-      python_version: ${{ python_min }}
+      python_version: ${{ python_min }}.*
   - requirements:
       run:
-        - python ${{ python_min }}
         - pip
     script:
       - svg2tikz --help
